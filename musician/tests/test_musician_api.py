@@ -35,6 +35,7 @@ class MusicianApiTests(TestCase):
         }
 
         response = self.client.post(MUSICIAN_URL, payload)
+        print(response.data)
         musicians = Musician.objects.all()
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertEqual(musicians.count(), 2)
